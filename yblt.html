@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<link rel="shortcut icon" href="/favicon.ico"/>
+
+    <title>NASAC2018 优秀博士生论坛</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/offcanvas.css" rel="stylesheet">
+	<style type="text/css">
+	a{cursor:pointer;}
+	.list-group-item.active{border-color:none;}
+	body{
+	    font-size: 1rem;
+	}
+	h3{
+	    font-size: 23px;
+	}
+	.p_kong{
+		text-indent: 2em; 
+		text-align: left;
+	}
+	.td_width_1{
+		width:85px;
+	}
+	.td_width{
+		width:185px;
+	}
+	</style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <a href='http://nasac2018.szu.edu.cn/'><img class="img-responsive" src="/images/sz.jpg" alt="NASAC2018" style="width: 100%"></a>
+        </div>
+      </div>
+
+      <div class="row row-offcanvas row-offcanvas-left">
+
+
+        <div class="col-12">
+          <div id="middle-container" style="min-height: 500px;background-color:#eceeef;padding:15px 15px;">
+			<div class=""> 
+				 <h3 style='text-align:center;'><strong>NASAC2018 优秀博士生论坛</strong></h3> 
+				 <div class="">
+					<div class="">
+						<p style="text-indent: 2em; text-align: left;">优秀博士生论坛是 NASAC 自2015年设立的报告环节，旨在为全国从事软件工程、系统软件等研究领域、处于不同研究阶段的博士生提供一个高起点、多方向的学术交流平台，展示博士生的创新科技成果，促进不同方向的交叉融合，拓宽博士生的学术视野。
+					</p>
+					<p style="text-indent: 2em; text-align: left;">NASAC 2018优秀博士生论坛将以博士生学术报告为主，同时发挥导师和专家的指导作用，帮助博士生开阔视野，提高创新能力。因此，NASAC优秀博士生论坛拟包含特邀报告、学术报告及讨论三个环节。
+					</p>
+					<p style="text-indent: 2em; text-align: left;">
+						NASAC 2018优秀博士生论坛将采用申请-遴选的方式邀请若干名博士生进行学术报告，分享近期学术成果。有意在优秀博士论坛做学术报告的博士生在9月20日前填写申请表。
+					</p>
+					<p><strong>申请截止时间：</strong>9月20日</p>
+					<p><strong>申请结果通知：</strong>10月10日</p>
+					<p><strong>优秀博士生论坛协调人：</strong></p>
+						<ul> 
+							<li>郝丹(haodan@pku.edu.cn)   北京大学</li>
+							<li>陈雨亭(chenyt@sjtu.edu.cn)   上海交通大学</li>
+						</ul>
+					<p><strong>详情：</strong><a href='http://nasac2018.szu.edu.cn/NASAC优博论坛征集表.docx'>NASAC优博论坛征集表.docx</a></p>
+					
+					</div>
+				   </div>
+				</div>
+		  </div>
+        </div><!--middle-container-->
+
+        
+      </div><!--/row-->
+
+      <hr style="height:1px;border:none;border-top:1px dashed #5cb85c;">
+
+      <footer>
+        <p class="text-center">2018 &copy; NASAC 会务组</p>
+      </footer>
+
+    </div><!--/.container-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/javascripts/jquery-3.1.1.js"></script>
+	<script src="/javascripts/layui.js"></script>
+    <script>window.jQuery || document.write('<script src="/javascripts/jquery-3.1.1.js"><\/script>')</script>
+    <script src="/javascripts/tether.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/javascripts/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+	'use strict'
+    $(function(){
+     // $('#middle-container').load('/dhsy.html',function(result){
+     //   let $result = $(result)
+     //   $result.find("script").appendTo('#middle-container');
+     // })
+      
+      $('.list-group-item').on('click',function(e){
+        'use strict'
+        let current_active_a_id = $('.list-group-item.active').attr('id'),
+            current_id = $(this).attr('id') 
+        $('#middle-container').load('/'+current_id+'.html',function(result){
+          $('#'+current_active_a_id).toggleClass('active')
+          $('#'+current_id).toggleClass('active')
+		  
+          let $result = $(result)
+		  console.log('new script--->',$result.find("script"))
+          $result.find("script").appendTo('#middle-container')
+          $('.row-offcanvas').toggleClass('active')
+        })
+      })
+      $('[data-toggle="offcanvas"]').click(function () {
+        $('.row-offcanvas').toggleClass('active')
+      });
+
+     })
+    </script>
+  </body>
+</html>

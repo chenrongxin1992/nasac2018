@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge”>
+	<meta name="description" content="NASAC2018 第十七届全国软件与应用学术会议">
+	<link rel="shortcut icon" href="/favicon.ico"/>
+
+    <title>NASAC2018 第十七届全国软件与应用学术会议</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap-treeview.css' />
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	
+	 <!--[if lt IE 9]>
+    　 <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+	
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/offcanvas.css" rel="stylesheet">
+	<style type="text/css">
+	.table-bordered td, .table-bordered th {
+		border: 1px solid black;
+		text-align: center;
+		vertical-align: middle!important;
+	}
+	.table thead th {
+		vertical-align: bottom;
+		border-bottom: 1px solid black!important;
+	}
+	.table-bordered thead td, .table-bordered thead th{
+		border-bottom-width: 1px; 
+		text-align: center;
+		vertical-align: middle!important;
+	}
+	.table-bordered thead td, .table-bordered thead th{ 
+		text-align: center;
+		vertical-align: middle!important;
+	}
+	.table td, .table th{
+		border: 1px solid black;
+		border-top: 1px solid black;
+	}
+	.table-bordered td, .table-bordered th{
+		text-align: center;
+		vertical-align: middle!important;
+	}
+	a{cursor:pointer;}
+	.list-group-item.active{border-color:none;}
+	body{
+	    font-size: 1rem;
+	}
+	h3{
+	    font-size: 23px;
+	}
+	.p_kong{
+		text-indent: 2em; 
+		text-align: left;
+	}
+	.td_width_1{
+		width:85px;
+	}
+	.td_width{
+		width:185px;
+	}
+	.collapseDiv{
+		color: #333;
+		border-radius: 4px;
+		background-color: #f5f5f5;
+		border:1px solid transparent;
+		border-color: #ddd;
+		box-shadow: 0 1px 1px rgba(0,0,0,.05);
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+	.collapseDiv h3{
+		font-size: 14px;
+		font-weight: bold;
+		color: #333;
+		border-color: #ddd;
+		padding: 8px;
+	}
+	.collapse_content{
+		border-top: 1px solid #ddd;
+		background-color:#fff ;
+		padding:15px;
+	}
+	.collapse_body {
+		background-color:#fff ;
+		position: relative;
+		height: 0;
+		overflow: hidden;
+		-webkit-transition-timing-function: ease;
+		-o-transition-timing-function: ease;
+		transition-timing-function: ease;
+		-webkit-transition-duration: .35s;
+		-o-transition-duration: .35s;
+		transition-duration: .35s;
+		-webkit-transition-property: height, visibility;
+		-o-transition-property: height, visibility;
+		transition-property: height, visibility
+		
+	}
+	.hot{vertical-align:super}
+	.jumbotron {
+		min-height:883px;
+		margin-bottom: 0; 
+	 }
+	 @media screen and (max-width: 385px) {
+		.middle_row {
+			background-color:white;
+		}
+	}
+	@media screen and (min-width: 385px) {
+	 .middle_row {
+			background-color:#eceeef;
+		}
+	}
+	@font-face {
+	  font-family: 'Glyphicons Halflings';
+	}
+	* {
+		font-family:"Glyphicons Halflings", "Microsoft YaHei" ! important;
+	}
+	</style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <img class="img-responsive" src="/images/sz.jpg" alt="NASAC2018" style="width: 100%">
+        </div>
+      </div>
+
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+		  <div id="tree"></div>
+
+        </div><!--sidebar-->
+		<div class="row middle_row" >
+          <div class="col-12">
+            <p class="float-left hidden-md-up" style="margin-left: 15px;background-color: #eceeef;">
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">菜单</button>
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          <div id="middle-container" style="min-height: 500px;"></div>
+        </div><!--middle-container-->
+
+        
+      </div><!--/row-->
+
+      <hr style="height:1px;border:none;border-top:1px dashed #5cb85c;">
+
+      <footer>
+        <p class="text-center">2018 &copy; NASAC 会务组</p>
+      </footer>
+
+    </div><!--/.container-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/javascripts/jquery-3.1.1.js"></script>
+    <script>window.jQuery || document.write('<script src="/javascripts/jquery-3.1.1.js"><\/script>')</script>
+    <script src="/javascripts/tether.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+	<script src="/javascripts/bootstrap-treeview.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/javascripts/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+	$(function() {
+            $('#tree').treeview({
+                //enableLinks:true,
+                data: getTree(),//节点数据
+                onNodeSelected:function(event,data){//节点被选中
+                  console.log('event--->',event)
+                  console.log('data--->',data)
+                  $('#middle-container').load(data.href,function(result){
+                    let $result = $(result)
+                    $result.find("script").appendTo('#middle-container')                   
+                  })
+                },
+                onNodeUnselected:function(event,data){
+                  console.log('event--->',event)
+                  console.log('data--->',data)
+                }
+            });
+        })
+
+        function getTree() {
+            //节点上的数据遵循如下的格式：
+            var tree = [{
+					selectable: true,
+					text: "首页", //节点显示的文本值  string
+					//icon: "glyphicon glyphicon-play-circle", //节点上显示的图标，支持bootstrap的图标  string
+					//color: "#ff0000", //节点的前景色      string
+					//backColor: "#1606ec", //节点的背景色      string
+					href: "/dhsy.html", //节点上的超链接
+					selectable: true, //标记节点是否可以选择。false表示节点应该作为扩展标题，不会触发选择事件。  string
+					state: { //描述节点的初始状态    Object
+						checked: false, //是否选中节点
+						disabled: false, //是否禁用节点
+						expanded: false, //是否展开节点
+						selected: false //是否选中节点
+					}
+				}, 
+				{
+				  text:'委员会',
+				  //icon:'fa fa-user',
+				  selectable:false,
+				  state: { //描述节点的初始状态    Object
+						checked: false, //是否选中节点
+						disabled: false, //是否禁用节点
+						expanded: false, //是否展开节点
+						selected: false //是否选中节点
+				  },
+				  nodes:[
+					{
+						text:'大会主席',
+						href:'/dhzx.html'
+					},
+					{
+						text:'执行委员会',
+						href:'/zxwyh.html'
+					},
+					{
+						text:'程序委员会',
+						href:'/cxwyh.html'
+					},
+					{
+						text:'组织委员会',
+						href:'/zzwyh.html'
+					}
+				  ]
+				},
+				{
+					text:'大会征文',
+					href:'/dhzw.html'
+				},
+				{
+					text:'教育论坛',
+					href:'/jylt.html'
+				},
+				{
+					text:'特邀报告人',
+					href:'/tybgr.html'
+				},
+				{
+					  text:'论坛',
+					  //icon:'icon-cloud-upload',
+					  selectable:false,
+					  state: { //描述节点的初始状态    Object
+						checked: false, //是否选中节点
+						disabled: false, //是否禁用节点
+						expanded: false, //是否展开节点
+						selected: false //是否选中节点
+				      },
+					  nodes:[
+						{
+							text:'顶会论坛',
+							href:'/dhlt.html'
+						},
+						{
+							text:'青年学者论坛',
+							href:'/qnxzlt.html'
+						},
+						{
+							text:'优秀博士生论坛',
+							href:'/yxbsslt.html'
+						}
+					  ]
+				},
+				{
+					text:'原型系统竞赛',
+					href:'/yxxtjs.html'
+				},
+				{
+					text:'录用公告',
+					href:'/lygg.html'
+				},
+				{
+					  text:'会议相关',
+					  //icon:'icon-cloud-upload',
+					  selectable:false,
+					  state: { //描述节点的初始状态    Object
+						checked: false, //是否选中节点
+						disabled: false, //是否禁用节点
+						expanded: false, //是否展开节点
+						selected: false //是否选中节点
+				      },
+					  nodes:[
+						{
+							text:'会议日程',
+							href:'/hyrc.html'
+						},
+						{
+							text:'会议注册',
+							href:'/hyzc.html'
+						},
+						{
+							text:'会议地点及交通',
+							href:'/hyddjjt.html'
+						},
+						{
+							text:'联系方式',
+							href:'/lxfs.html'
+						}
+					  ]
+				},{
+				  text:'赞助商招募',
+				  //icon:'icon-cloud-upload',
+				  selectable:true,
+				  href:'/zzs.html'
+				}
+			];
+
+            return tree;
+        }
+	function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+	'use strict'
+    $(function(){
+		var check = GetQueryString("zwtz");
+		if(check == 'zwtz'){
+			console.log('ddd')
+			$('#middle-container').load('/dhzw.html',function(result){
+				$('#dhzw').toggleClass('active')
+				$('#dhsy').toggleClass('active')
+				$("title").html("NASAC2018大会征文");
+				var $result = $(result)
+				$result.find("script").appendTo('#middle-container');
+			 })
+		}else{
+			 $('#middle-container').load('/dhsy.html',function(result){
+				var $result = $(result)
+				$result.find("script").appendTo('#middle-container');
+			 })
+		}
+     
+      
+      $('.list-group-item').on('click',function(e){
+	  console.log('fff')
+        'use strict'
+        var current_active_a_id = $('.list-group-item.active').attr('id'),
+            current_id = $(this).attr('id') 
+        $('#middle-container').load('/'+current_id+'.html',function(result){
+          $('#'+current_active_a_id).toggleClass('active')
+          $('#'+current_id).toggleClass('active')
+		  
+          var $result = $(result)
+		  console.log('new script--->',$result.find("script"))
+          $result.find("script").appendTo('#middle-container')
+          $('.row-offcanvas').toggleClass('active')
+        })
+      })
+      $('[data-toggle="offcanvas"]').click(function () {
+        $('.row-offcanvas').toggleClass('active')
+      });
+
+     })
+    </script>
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  </body>
+</html>
