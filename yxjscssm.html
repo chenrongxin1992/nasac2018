@@ -1,0 +1,148 @@
+<div class="jumbotron">
+	<div class="row">
+	    	<div class="col-12 col-xs-12">
+	    		<h3 class="text-center"><strong>NASAC2018原型系统竞赛-命题型初审说明</strong></h3>
+	    	</div>
+	    	<div class="col-12 col-xs-12">
+					<h5><strong>关于漏洞类型</strong></h5>
+					<p class='p_kong'>赛题涉及的漏洞类型暂定表1所示的类型，将结合投稿工具的功能及初审结果进行调整或扩充。（任何调整或扩充均会在后续通知中进行说明）
+					</p>
+					<p style="text-align: center;">表1 检测样本可能包含的漏洞类型</p>
+					<table>
+						<thead>
+							<tr>
+							  <th lay-data="{field:'username', width:200}"></th>
+							  <th lay-data="{field:'joinTime', width:150}">漏洞/缺陷类型</th>
+							</tr> 
+					  	</thead>
+					  	<tbody>
+							<tr>
+							  <td>C/C++检测样本</td>
+							  <td>缓冲区越界读写（buffer overflow）、双重释放（double free）、释放后使用（use after free）</td>
+							</tr>
+							<tr>
+							  <td>Java检测样本</td>
+							  <td>SQL注入、XSS、命令注入</td>
+							</tr>
+						</tbody>
+					</table>
+					<br>
+					<h5><strong>关于测试用例</strong></h5>
+
+					<p class='p_kong'>初审阶段，测试用例用于仅供参赛队对自己的工具进行测试，并作为工具介绍中漏洞检测示例之用。
+					</p>
+					<p class='p_kong'>初审阶段公开的测试用例中，部分Java测试样本不可直接编译，如漏洞检测需预先进行编译，则请参赛队在不改变样本漏洞性质的前提下对样本自主地进行预处理，并在工具介绍的漏洞检测示例部分进行说明。
+					</p>
+					<p class='p_kong'>初审阶段测试用例下载地址：<a href="https://pan.baidu.com/s/1uWkvGN44FL3t5y1e5AjPEw">https://pan.baidu.com/s/1uWkvGN44FL3t5y1e5AjPEw</a>
+					</p>
+					<br>
+
+					<h5><strong>其它</strong></h5>
+					<p class='p_kong'>如有其它问题，请联系QQ1353741446
+					</p>
+					
+			</div>
+    </div>
+</div>
+<script>
+//接受三个参数，分别是折叠菜单的外包div名称，是否关闭之前的折叠，默认开启的折叠内容
+        function Collapse(className,close_prev,default_open){        
+        this._elements = [];
+        this._className = String(className);
+        this._previous = Boolean(close_prev)
+        this._default = typeof(default_open)==="number" ? default_open: -1
+        this.getCurrent  
+        this.init();
+    }
+
+    //收集所有折叠菜单的div
+    Collapse.prototype.collectElementbyClass = function(){
+        this._elements = [];
+        var allelements = document.getElementsByTagName("div");
+
+        for(var i=0;i<allelements.length;i++){
+            var collapse_div = allelements[i];
+            if (typeof collapse_div.className === "string" && collapse_div.className === this._className){
+
+                var h3s = collapse_div.getElementsByTagName("h3");
+                var collapse_body = collapse_div.getElementsByClassName("collapse_body");
+                if(h3s.length === 1 && collapse_body.length === 1){
+                    h3s[0].style.cursor = "pointer";    
+                    
+                    if(this._default === this._elements.length){
+                        collapse_body[0].style.visibility = "visible";
+                      collapse_body[0].style.height = collapse_body[0].scrollHeight+"px"
+                    }else{
+                        collapse_body[0].style.height = "0px";
+                      collapse_body[0].style.visibility = "hidden";    
+                    }
+                    this._elements[this._elements.length] = collapse_div;
+                }                
+            }
+        }
+    }
+    Collapse.prototype.open = function(elm){
+        elm.style.visibility = "visible";
+        elm.style.height = elm.scrollHeight + "px"
+        
+    }
+    Collapse.prototype.close = function(elm){
+      elm.style.height = "0px";
+      elm.style.visibility = "hidden";
+    }
+    Collapse.prototype.isOpen = function(elm){    
+    
+      return elm.style.visibility === "visible"
+    }
+    
+    Collapse.prototype.getCurrent = function(header){
+        var cur ;
+        if(window.addEventListener){
+            cur = header.parentNode
+        }else{
+            cur = header.parentElement
+        }
+        return cur.getElementsByClassName("collapse_body")[0]
+        }
+    
+    Collapse.prototype.toggleDisplay = function(header){
+        
+        var cur = this.getCurrent(header)
+        //console.log(cur)
+        if(this.isOpen(cur)){
+            this.close(cur);
+        }else{
+            this.open(cur);
+        }        
+        if(this._previous){
+            for(var i=0;i<this._elements.length;i++){
+                if(this._elements[i] !== (cur.parentNode||cur.parentElement)){                
+                    var collapse_body = this._elements[i].getElementsByClassName("collapse_body");
+                    collapse_body[0].style.height = "0px";
+                    collapse_body[0].style.visibility = "hidden";
+                            
+                }
+            }
+        }
+    }    
+    
+    Collapse.prototype.init = function(){        
+        var instance = this;
+        this.collectElementbyClass();
+        if(this._elements.length === 0){
+            return;
+        }
+        
+        for(var i=0;i<this._elements.length;i++){
+            var h3s = this._elements[i].getElementsByTagName("h3");            
+            if(window.addEventListener){
+                h3s[0].addEventListener("click",function(){ instance.toggleDisplay(this);},false); 
+            }else{
+                h3s[0].onclick = function(){instance.toggleDisplay(this);}
+            }
+        }
+    }
+    
+//传参
+ var myCollapse = new Collapse("collapseDiv",true);
+</script>
