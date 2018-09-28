@@ -170,6 +170,10 @@
 		.item-2{
 			padding-left: 50px;
 		}
+		.pjd{
+			margin-top: -15px;
+			margin-bottom: 35px;
+		}
 	</style>
   </head>
 
@@ -236,7 +240,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/javascripts/jquery-3.1.1.js"></script>
-	<script src="/javascripts/layui.all.js"></script>
+	<!-- <script src="/javascripts/layui.all.js"></script> -->
     <script>window.jQuery || document.write('<script src="/javascripts/jquery-3.1.1.js"><\/script>')</script>
     <script src="/javascripts/tether.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
@@ -246,7 +250,9 @@
 	<script src="/javascripts/bootstrap-table-zh-CN.js"></script>
 	
     <script type="text/javascript">
-
+    $.ajaxSetup ({ 
+      cache: false //关闭AJAX相应的缓存 
+    });
 	function GetQueryString(name)
 		{
 		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
