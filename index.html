@@ -110,7 +110,7 @@
 	}
 	.hot{vertical-align:super}
 	.jumbotron {
-		min-height:883px;
+		min-height:981px;
 		margin-bottom: 0; 
 	 }
 	 @media screen and (max-width: 385px) {
@@ -174,6 +174,38 @@
 			margin-top: -15px;
 			margin-bottom: 35px;
 		}
+		#tinybox {
+		    position: absolute;
+		    display: none;
+		    padding: 10px;
+		    background: #ffffff url(${basePath}skin_group_web/image/preload.gif)
+		        no-repeat 50% 50%;
+		    border: 1px solid #62D7FA;
+		    z-index: 2000;
+		    top: 845px;
+		    left: 360.5px;
+		    opacity: 1;
+		    display: block;
+		    width: 600px;
+		    height: 384px;
+		    background-image: none;
+		}
+
+		#tinymask {
+		    position: absolute;
+		    display: none;
+		    opacity: 20%;
+		    top: 0;
+		    left: 0;
+		    height: 100%;
+		    width: 100%;
+		    z-index: 1500;
+		}
+
+		#tinycontent {
+		    background: #ffffff;
+		    font-size: 1.1em;
+		}
 	</style>
   </head>
 
@@ -195,11 +227,11 @@
             <a class="list-group-item" id="zzwyh" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">组织委员会</a>
             <a class="list-group-item" id="dhzw" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">大会征文<sup><img src='/images/hot.gif'></sup></a>
 			<a class="list-group-item" id="alzj" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">教育论坛</a>
-            <a class="list-group-item" id="tybgr" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">特邀报告人<sup><img src='/images/new.gif'></sup></a>
+            <a class="list-group-item" id="tybgr" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">特邀报告人</a>
 			<a class="list-group-item" id="dhlt" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">顶会论坛</a>
             <a class="list-group-item" id="qnxzlt" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">青年学者论坛</a>
             <a class="list-group-item" id="yxbsslt" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">优秀博士生论坛</a>
-
+            <a class="list-group-item" id="qtlt" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">其它论坛 / 并行会议</a>
             
             <a class="list-group-item item-1" id="yxxtjs" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''"><span class="glyphicon glyphicon-plus"></span> 原型系统竞赛<sup><img src='/images/new.gif'></sup></a>
             	<div class="list-group nav-second fold">
@@ -208,6 +240,7 @@
 
             <a class="list-group-item" id="lygg" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">录用公告</a>
             <a class="list-group-item" id="hyrc" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">会议日程</a>
+            <a class="list-group-item" id="hyyqh" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">会议邀请函<sup><img src='/images/new.gif'></sup></a>
             <a class="list-group-item" id="hyzc" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">会议注册<sup><img src='/images/new.gif'></sup></a>
             <a class="list-group-item" id="hyddjjt" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">会议地点及交通</a>
             <a class="list-group-item" id="lxfs" onmouseover="this.style.background='#BFEFFF'" onmouseout="this.style.background=''">联系方式</a>
@@ -239,7 +272,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    
     <script src="/javascripts/jquery-3.1.1.js"></script>
+
 	<!-- <script src="/javascripts/layui.all.js"></script> -->
     <script>window.jQuery || document.write('<script src="/javascripts/jquery-3.1.1.js"><\/script>')</script>
     <script src="/javascripts/tether.min.js"></script>
@@ -247,6 +282,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/javascripts/ie10-viewport-bug-workaround.js"></script>
 	<script src="/javascripts/bootstrap-table.js"></script>
+	<script src="/javascripts/tinybox.js"></script>
 	<script src="/javascripts/bootstrap-table-zh-CN.js"></script>
 	
     <script type="text/javascript">
@@ -261,6 +297,7 @@
 		}
 	'use strict'
     $(function(){
+
     	$(".item-1").click(function(){
     		console.log('check',$(this))
 			$(this).parent().find(".nav-second").slideToggle(500);
@@ -320,11 +357,13 @@
       $('[data-toggle="offcanvas"]').click(function () {
         $('.row-offcanvas').toggleClass('active')
       });
-
+      setTimeout("alert('NASAC2018会议资料可从以下网址下载：https://github.com/chenrongxin1992/NASAC2018_DATA')",1200)
+      	
      })
     </script>
 	<script>
 (function(){
+
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
     if (curProtocol === 'https'){
@@ -335,8 +374,9 @@
   }
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
+
 })();
 </script>
-
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kFFpYEqbBLAvbkNxgpdM7uH61AuTIHmH"></script>
   </body>
 </html>
